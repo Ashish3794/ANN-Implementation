@@ -1,6 +1,6 @@
-from src.utils.common import read_config
-from src.utils.data_mgmt import get_data
-from src.utils.model import create_model
+from utils.common import read_config
+from utils.data_mgmt import get_data
+from utils.model import create_model
 
 import argparse
 
@@ -29,5 +29,4 @@ if __name__ == '__main__':
     args.add_argument("--config", "-c", default="config.yaml")
 
     parsed_args = args.parse_args()
-
     training(config_path=parsed_args.config)
