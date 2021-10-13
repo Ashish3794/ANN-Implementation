@@ -4,6 +4,8 @@ from utils.model import create_model, save_model
 
 import argparse
 import os
+import pandas as pd
+import matplotlib.pyplot as plt
 
 def training(config_path):
     config = read_config(config_path)
@@ -32,6 +34,10 @@ def training(config_path):
 
     model_name = config["artifacts"]["model_name"]
     save_model(model, model_name, model_dir_path)
+
+    pd.DataFrame(history.history).plot(figsize=(10, 7))
+    plt.grid(True)
+    plt.show()
 
 
 if __name__ == '__main__':
